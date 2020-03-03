@@ -1,7 +1,9 @@
 
 <% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
+  <p class="notice"><%= flash[:notice] %></p>
 <% end %>
+
+<h1>Books</h1>
 
 <table>
 	<thead>
@@ -27,20 +29,17 @@
 <h2>New Book</h2>
 
 <%= form_for(@book) do |f| %>
-	<% if @book.errors.any? %>
-		<h2>Errors:</h2>
-		<ul>
-			<% @book.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<%= f.error_messages %>
 
-	<h4>Title</h4>
-	<%= f.text_field :title %>
+	<div class="field">
+		<%= f.label :title, "Title" %>
+		<%= f.text_field :title %>
+	</div>
 
-	<h4>Body</h4>
-	<%= f.text_area :body %>
+	<div class="field">
+		<%= f.label :body, "Body" %>
+		<%= f.text_area :body %>
+	</div>
 
 	<%= f.submit 'Create Book' %>
 

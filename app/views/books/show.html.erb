@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
+  <p class="notice"><%= flash[:notice] %></p>
 <% end %>
 
 <h2>タイトル</h2>
@@ -7,6 +7,8 @@
 <h2>本文</h2>
 <p><%= @book.body %></p>
 
-<span><%= link_to "edit", edit_book_path(@book) %></span>
-<span>|</span>
-<span><%= link_to "back", books_path %></span>
+<div class="links">
+	<span><%= link_to "edit", edit_book_path(@book) %></span>
+	<span>|</span>
+	<span><%= link_to "back", books_path %></span>
+</div>

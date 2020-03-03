@@ -1,24 +1,24 @@
+<h1>Editing Book</h1>
+
 <%= form_for(@book) do |f| %>
+	<%= f.error_messages %>
 
-	<% if @book.errors.any? %>
-		<h2>Errors:</h2>
-		<ul>
-			<% @book.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-		</ul>
-	<% end %>
+	<div class="field">
+		<%= f.label :title, "Title" %>
+		<%= f.text_field :title %>
+	</div>
 
-	<h4>Title</h4>
-	<%= f.text_field :title %>
+	<div class="field">
+		<%= f.label :body, "Body" %>
+		<%= f.text_area :body %>
+	</div>
 
-	<h4>Body</h4>
-	<%= f.text_area :body %>
-
-	<%= f.submit 'Update Book' %>
+	<%= f.submit 'Create Book' %>
 
 <% end %>
 
-<span><%= link_to "show", book_path(@book) %></span>
-<span>|</span>
-<span><%= link_to "back", books_path %></span>
+<div class="links">
+	<span><%= link_to "show", book_path(@book) %></span>
+	<span>|</span>
+	<span><%= link_to "back", books_path %></span>
+</div>
